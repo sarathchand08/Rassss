@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Rassssss 💜🌙</title>
+<style>
+body {
+margin: 0;
+padding: 0;
+height: 100vh;
+background: radial-gradient(circle at top, #1a0026, #3b0066, #660099);
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+font-family: 'Segoe Script', cursive;
+color: #f5e6ff;
+text-align: center;
+}
+
+.moon {
+position: absolute;
+top: 60px;
+right: 90px;
+width: 130px;
+height: 130px;
+background: radial-gradient(circle, #f3ccff, #b366ff);
+border-radius: 50%;
+box-shadow: 0 0 60px 30px rgba(204,102,255,0.6);
+animation: glowMoon 3s infinite alternate;
+}
+
+@keyframes glowMoon {
+from { box-shadow: 0 0 30px 15px rgba(204,102,255,0.4); }
+to { box-shadow: 0 0 80px 35px rgba(204,102,255,0.8); }
+}
+
+.message {
+font-size: 28px;
+max-width: 650px;
+line-height: 1.7;
+text-shadow: 0 0 20px #cc99ff;
+padding: 20px;
+z-index: 2;
+}
+
+.star {
+position: absolute;
+width: 3px;
+height: 3px;
+background: #e6ccff;
+border-radius: 50%;
+animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+from { opacity: 0.3; }
+to { opacity: 1; }
+}
+
+.heart {
+position: absolute;
+color: #ff99ff;
+animation: rise 6s linear infinite;
+font-size: 22px;
+}
+
+@keyframes rise {
+0% { transform: translateY(100vh); opacity: 1;}
+100% { transform: translateY(-10vh); opacity: 0;}
+}
+
+/* Shooting Star */
+.shooting-star {
+position: absolute;
+width: 2px;
+height: 80px;
+background: linear-gradient(white, transparent);
+opacity: 0;
+transform: rotate(45deg);
+animation: shoot 2s linear forwards;
+}
+
+@keyframes shoot {
+0% {
+opacity: 1;
+transform: translate(0,0) rotate(45deg);
+}
+100% {
+opacity: 0;
+transform: translate(400px,400px) rotate(45deg);
+}
+}
+
+/* Firework */
+.firework {
+position: absolute;
+width: 5px;
+height: 5px;
+background: #cc66ff;
+border-radius: 50%;
+animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+0% { transform: scale(1); opacity: 1; }
+100% { transform: scale(8); opacity: 0; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="moon"></div>
+
+<div class="message">
+Rassssss 💜<br><br>
+Even if my replies are late…
+my love for you is never delayed.
+<br><br>
+You are my sky, my calm,
+my forever moonlight, my Sun, my Purple💜.🌞🌙✨
+<br><br>
+– Always your Chanduuuu 💕
+</div>
+<audio id="bgMusic" loop>
+<source src="https://drive.google.com/uc?export=download&id=1sWeQ1fHRyHfbzYwaPkqn67d_x_ArEl31" type="audio/mpeg">
+</audio>
+<script>
+document.body.addEventListener("click", function() {
+document.getElementById("bgMusic").play();
+}, { once: true });
+
+// Stars
+for (let i = 0; i < 120; i++) {
+const star = document.createElement("div");
+star.classList.add("star");
+star.style.top = Math.random() * 100 + "vh";
+star.style.left = Math.random() * 100 + "vw";
+star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+document.body.appendChild(star);
+}
+
+// Floating Hearts
+function createHeart() {
+const heart = document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML = "💜";
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+document.body.appendChild(heart);
+setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 800);
+
+// Shooting Star every 8 seconds
+setInterval(() => {
+const star = document.createElement("div");
+star.classList.add("shooting-star");
+star.style.top = Math.random() * 50 + "vh";
+star.style.left = Math.random() * 50 + "vw";
+document.body.appendChild(star);
+setTimeout(() => star.remove(), 2000);
+}, 8000);
+
+// Fireworks every 5 seconds
+setInterval(() => {
+for (let i = 0; i < 15; i++) {
+const fw = document.createElement("div");
+fw.classList.add("firework");
+fw.style.top = Math.random() * 70 + "vh";
+fw.style.left = Math.random() * 100 + "vw";
+document.body.appendChild(fw);
+setTimeout(() => fw.remove(), 1000);
+}
+}, 5000);
+
+</script>
+
+</body>
+</html>
